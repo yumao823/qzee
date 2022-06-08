@@ -16,10 +16,10 @@ const theme = createTheme({
       dark: '#27ae60',
     },
     grey: {
-      main: '#9e9e9e',
+      main: '#7d7d83',
       light: '#f1f4f8',
-      dark: '#a9abae',
-      darker: '#323234',
+      dark: '#323234',
+      darker: '#242328',
     },
     light: {
       main: '#ffffff'
