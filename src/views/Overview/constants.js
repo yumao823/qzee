@@ -230,3 +230,38 @@ export const STAFF_SHIFTS = [
     active: false,
   },
 ]
+
+export const MESSAGES = [
+  {
+    id: 0,
+    author: 'Cardiff Dough&Co',
+    time: '54 mins ago',
+    content: 'Having entered The Blue Cup Coffee Shop, you’ll  walk into a world of fragrant coffee, healthy snacks  and fabulous decor.',
+    like: 235,
+    dislike: 235,
+  },
+  {
+    id: 1,
+    author: 'Cardiff Dough&Co',
+    time: '54 mins ago',
+    content: 'Having entered The Blue Cup Coffee Shop, you’ll  walk',
+    like: 235,
+    dislike: 235,
+  },
+  {
+    id: 2,
+    author: 'Cardiff Dough&Co',
+    time: '54 mins ago',
+    content: 'Having entered The Blue Cup Coffee Shop, you’ll  walk into a world of fragrant coffee, healthy snacks  and fabulous decor.',
+    like: 235,
+    dislike: 235,
+  },
+  {
+    id: 3,
+    author: 'Cardiff Dough&Co',
+    time: '54 mins ago',
+    content: 'Having entered The Blue Cup Coffee Shop, you’ll  walk',
+    like: 235,
+    dislike: 235,
+  },
+]
