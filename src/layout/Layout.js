@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Hidden } from '@mui/material'
+import { Container, Grid, Hidden } from '@mui/material'
 import Header from '../components/Header'
 import SideNav from '../components/SideNav'
 
@@ -13,7 +13,9 @@ const Layout = ({ children }) => {
       </Hidden>
       <Grid xs={12} md={9.6}>
         <Header />
-        {children}
+        <Container maxWidth="lg">
+          {children}
+        </Container>
       </Grid>
     </Grid>
   )
