@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       </Hidden>
       <Grid xs={12} md={9.6}>
         <Header />
-        <Container maxWidth="lg" sx={{ py: 2 }}>
+        <Container maxWidth="lg" sx={{ height: { md: '92vh' }, py: 2 }}>
           {children}
         </Container>
       </Grid>
