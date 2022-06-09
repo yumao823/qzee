@@ -19,7 +19,6 @@ const Header = () => {
     <Box
       sx={{
         backgroundColor: 'white',
-        height: '8vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -27,6 +26,7 @@ const Header = () => {
         borderBottom: '1px solid',
         borderColor: 'border.main',
         px: 2,
+        py: 1,
       }}>
         <Hidden mdDown>
           <Stack direction="row" spacing={1}>
