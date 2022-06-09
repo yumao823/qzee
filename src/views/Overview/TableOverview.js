@@ -19,10 +19,9 @@ const TableOverview = () => (
   <>
     <Box
       sx={{
-        height: { md: '8vh' },
         display: 'flex',
-        alignItems: { xs: 'start', md: 'center' },
-        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: { xs: 'start', lg: 'center' },
+        flexDirection: { xs: 'column', lg: 'row' },
         p: 2,
         borderBottom: '1px solid',
         borderColor: 'border.main',
@@ -39,7 +38,7 @@ const TableOverview = () => (
         <SettingsIcon sx={{ color: 'grey.main' }} />
       </IconButton>
     </Box>
-    <Grid container spacing={2} sx={{ height: { md: '34vh' }, overflow: 'auto', p: 2, pt: 0, mt: 0 }}>
+    <Grid container spacing={2} sx={{ overflow: 'auto', p: 2, pt: 0, mt: 0 }}>
       {TABLE_OVERVIEWS.map((item) => (
         <Grid item xs={6} sm={4} md={3} lg={2}>
           <TableItem data={item} />

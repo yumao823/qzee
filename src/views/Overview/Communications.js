@@ -53,7 +53,7 @@ const Communication = () => {
         variant="fullWidth"
         TabIndicatorProps={{ style: {background: '#ffe68e' }} }
         textColor="black"
-        sx={{ borderBottom: '1px solid', borderColor: 'border.main', height: { md: '8vh' } }}
+        sx={{ borderBottom: '1px solid', borderColor: 'border.main' }}
       >
         <Tab
           value="alerts"
@@ -76,7 +76,7 @@ const Communication = () => {
           iconPosition="end"
         />
       </Tabs>
-      <Box sx={{ height: { xs: '60vh', md: '34vh'}, overflow: 'auto', p: 2 }}>
+      <Box sx={{ overflow: 'auto', p: 2 }}>
         {active === 'message' ? (
           <Message />
         ) : (

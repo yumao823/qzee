@@ -8,7 +8,7 @@ import Communication from './Communications'
 const Overview = () => {
   return (
     <Stack sx={{ height: '100%', justifyContent: 'space-between' }}>
-      <Grid container sx={{ height: { md: '42vh' } }}>
+      <Grid container sx={{ mb: 3 }}>
         <Grid
           item
           xs={12}
@@ -26,7 +26,7 @@ const Overview = () => {
           <Info />
         </Grid>
       </Grid>
-      <Grid container sx={{ height: { md: '42vh' }, mb: { xs: 4, md: 0 } }}>
+      <Grid container sx={{ mb: 4 }}>
         <Grid item xs={12} sm={6} md={8.5}>
           <StaffShift />
         </Grid>

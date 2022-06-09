@@ -11,7 +11,7 @@ const SideNav = () => {
   const path = pathname.split('/')[1]
 
   return (
-    <Box sx={{ backgroundColor: 'grey.dark', minHeight: '100vh', py: 4 }}>
+    <Box sx={{ backgroundColor: 'grey.dark', minHeight: '100vh', height: '100%', py: 4 }}>
       <Stack direction="row" spacing={2} sx={{ justifyContent: 'center', alignItems: 'end', mb: 5 }}>
         <img src="logo.svg"></img>
         <Typography variant="body2" sx={{ color: 'yellow.dark' }}>owners</Typography>
