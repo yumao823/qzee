@@ -6,41 +6,39 @@ import MapIcon from '@mui/icons-material/Map'
 import SettingsIcon from '@mui/icons-material/Settings'
 import { STAFF_SHIFTS } from './constants'
 
-const StaffShift = () => {
-  return (
-    <>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row' }, mt: { xs: 4, md: 0 }, mb: { xs: 4, md: 2 } }}>
-        <Typography variant="h4" sx={{ fontWeight: '500' }}>Staff on shift (8)</Typography>
-        <Button variant="contained" color="warning" startIcon={<SettingsIcon />} sx={{ backgroundColor: 'yellow.dark', borderRadius: 8 }}>
-          Employee settings
-        </Button>
-      </Box>
-      <Grid container spacing={2} sx={{ pb: 2 }}>
-        {STAFF_SHIFTS.map((item) => (
-          <Grid item xs={12} md={6} lg={3}>
-            <Box sx={{ backgroundColor: item.active ? 'green.light' : 'yellow.light', borderRadius: 4, p: 2 }}>
-              <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
-                <Badge color={item.online ? 'green' : 'light'} variant="dot">
-                  <Avatar src={item.avatar} sx={{ width: 52, height: 52 }} />
-                </Badge>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <TimerIcon sx={{ color: 'grey.main' }} />
-                  <Typography sx={{ fontSize: 14, fontWeight: '700' }}>{item.time}</Typography>
-                  <MoreVertIcon />
-                </Box>
-              </Box>
-              <Typography sx={{ fontWeight: '500' }}>{item.name}</Typography>
-              <Typography sx={{ fontSize: 13, color: 'grey.main' }}>{item.role}</Typography>
+const StaffShift = () => (
+  <>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: { xs: 'column', md: 'row' }, mt: { xs: 4, md: 0 }, mb: { xs: 4, md: 2 } }}>
+      <Typography variant="h4" sx={{ fontWeight: '500' }}>Staff on shift (8)</Typography>
+      <Button variant="contained" color="warning" startIcon={<SettingsIcon />} sx={{ backgroundColor: 'yellow.dark', borderRadius: 8 }}>
+        Employee settings
+      </Button>
+    </Box>
+    <Grid container spacing={2}>
+      {STAFF_SHIFTS.map((item) => (
+        <Grid item xs={12} md={6} lg={3}>
+          <Box sx={{ backgroundColor: item.active ? 'green.light' : 'yellow.light', borderRadius: 4, p: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <Badge color={item.online ? 'green' : 'light'} variant="dot">
+                <Avatar src={item.avatar} sx={{ width: 52, height: 52 }} />
+              </Badge>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <MapIcon sx={{ color: 'grey.main' }} />
-                <Typography sx={{ fontSize: 13 }}>{item.address}</Typography>
+                <TimerIcon sx={{ color: 'grey.main' }} />
+                <Typography sx={{ fontSize: 14, fontWeight: '700' }}>{item.time}</Typography>
+                <MoreVertIcon />
               </Box>
             </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </>
-  )
-}
+            <Typography sx={{ fontWeight: '500' }}>{item.name}</Typography>
+            <Typography sx={{ fontSize: 13, color: 'grey.main' }}>{item.role}</Typography>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <MapIcon sx={{ color: 'grey.main' }} />
+              <Typography sx={{ fontSize: 13 }}>{item.address}</Typography>
+            </Box>
+          </Box>
+        </Grid>
+      ))}
+    </Grid>
+  </>
+)
 
 export default StaffShift

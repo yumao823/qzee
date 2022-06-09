@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Box, IconButton, Stack, Tabs, Tab, Typography } from '@mui/material'
 import DataUsageIcon from '@mui/icons-material/DataUsage'
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt'
@@ -42,16 +42,23 @@ const Alerts = () => (
   </Typography>
 )
 
-const Communication = () => {
+const Communication = ({ height }) => {
   const [active, setActive] = useState('message')
+  const [chatHeight, setChatHeight] = useState(0)
+  const tabRef = useRef(null)
+
+  useEffect(() => {
+    setChatHeight(height - tabRef.current.offsetHeight)
+  }, [height, tabRef])
 
   return (
     <Box sx={{ height: '100%', border: '1px solid', borderColor: 'border.main', borderRadius: 4, mx: { xs: 0, sm: 2 }, my: { xs: 2, md: 0 } }}>
       <Tabs
+        ref={tabRef}
         value={active}
         onChange={(e, v) => setActive(v)}
         variant="fullWidth"
-        TabIndicatorProps={{ style: {background: '#ffe68e' }} }
+        TabIndicatorProps={{ style: { background: '#ffe68e' }} }
         textColor="black"
         sx={{ borderBottom: '1px solid', borderColor: 'border.main' }}
       >
@@ -76,7 +83,7 @@ const Communication = () => {
           iconPosition="end"
         />
       </Tabs>
-      <Box sx={{ overflow: 'auto', p: 2 }}>
+      <Box sx={{ height: { md: chatHeight }, maxHeight: { xs: '80vh' }, overflow: 'auto', p: 2 }}>
         {active === 'message' ? (
           <Message />
         ) : (

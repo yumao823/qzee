@@ -15,13 +15,13 @@ const TableItem = ({ data }) => (
   </Box>
 )
 
-const TableOverview = ({ overviewHeight }) => {
+const TableOverview = ({ height }) => {
   const headRef = useRef(null)
   const [tableHeight, settableHeight] = useState(0)
 
   useEffect(() => {
-    settableHeight(overviewHeight - headRef.current.offsetHeight)
-  }, [headRef, overviewHeight])
+    settableHeight(height - headRef.current.offsetHeight)
+  }, [headRef, height])
 
   return (
     <>

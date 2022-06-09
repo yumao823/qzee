@@ -7,11 +7,17 @@ import Communication from './Communications'
 
 const Overview = () => {
   const infoRef = useRef(null)
+  const staffRef = useRef(null)
   const [overviewHeight, setOverviewHeight] = useState(0)
+  const [staffHeight, setStaffHeight] = useState(0)
 
   useEffect(() => {
     setOverviewHeight(infoRef.current.offsetHeight)
   }, [infoRef])
+
+  useEffect(() => {
+    setStaffHeight(infoRef.current.offsetHeight)
+  }, [staffRef])
 
   return (
     <Stack sx={{ height: '100%', justifyContent: 'space-between' }}>
@@ -28,18 +34,18 @@ const Overview = () => {
             height: { md: overviewHeight },
           }}
         >
-          <TableOverview overviewHeight={overviewHeight} />
+          <TableOverview height={overviewHeight} />
         </Grid>
         <Grid ref={infoRef} item xs={12} sm={6} md={3.5}>
           <Info />
         </Grid>
       </Grid>
       <Grid container sx={{ mb: 4 }}>
-        <Grid item xs={12} sm={6} md={8.5}>
+        <Grid ref={staffRef} item xs={12} sm={6} md={8.5}>
           <StaffShift />
         </Grid>
         <Grid item xs={12} sm={6} md={3.5}>
-          <Communication />
+          <Communication height={staffHeight} />
         </Grid>
       </Grid>
     </Stack>
