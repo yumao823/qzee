@@ -6,7 +6,7 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled'
 import StarIcon from '@mui/icons-material/Star'
 
 const Info = () => (
-  <Box sx={{ height: '100%', px: { xs: 0, sm: 2 }, py: { xs: 4, md: 2 } }}>
+  <Box sx={{ height: '100%', px: { xs: 0, sm: 2 }, pt: { xs: 4, md: 2 } }}>
     <Grid container rowSpacing={2} sx={{ justifyContent: 'space-between' }}>
       <Grid item xs={5.8} sx={{ backgroundColor: 'yellow.dark', p: 2, borderRadius: 4, }}>
         <DataUsageIcon />

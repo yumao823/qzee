@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Box, Grid, IconButton, Stack, Typography } from '@mui/material'
 import GroupIcon from '@mui/icons-material/Group'
 import SettingsIcon from '@mui/icons-material/Settings'
@@ -15,37 +15,47 @@ const TableItem = ({ data }) => (
   </Box>
 )
 
-const TableOverview = () => (
-  <>
-    <Box
-      sx={{
-        display: 'flex',
-        alignItems: { xs: 'start', lg: 'center' },
-        flexDirection: { xs: 'column', lg: 'row' },
-        p: 2,
-        borderBottom: '1px solid',
-        borderColor: 'border.main',
-    }}
-    >
-      <Typography variant="h5" sx={{ fontWeight: 700, mr: 'auto', mb: { xs: 2, md: 0 } }}>Table Overview (45)</Typography>
-      {OVERVIEW_STATUS.map((item) => (
-        <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
-          <Box sx={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: item.color, mr: 0.5 }} />
-          <Typography variant="caption">{item.label}</Typography>
-        </Box>
-      ))}
-      <IconButton variant="outlined" color="warning" sx={{ border: '1px solid', ml: 'auto' }}>
-        <SettingsIcon sx={{ color: 'grey.main' }} />
-      </IconButton>
-    </Box>
-    <Grid container spacing={2} sx={{ overflow: 'auto', p: 2, pt: 0, mt: 0 }}>
-      {TABLE_OVERVIEWS.map((item) => (
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <TableItem data={item} />
-        </Grid>
-      ))}
-    </Grid>
-  </>
-)
+const TableOverview = ({ overviewHeight }) => {
+  const headRef = useRef(null)
+  const [tableHeight, settableHeight] = useState(0)
+
+  useEffect(() => {
+    settableHeight(overviewHeight - headRef.current.offsetHeight)
+  }, [headRef, overviewHeight])
+
+  return (
+    <>
+      <Box
+        ref={headRef}
+        sx={{
+          display: 'flex',
+          alignItems: { xs: 'start', lg: 'center' },
+          flexDirection: { xs: 'column', lg: 'row' },
+          p: 2,
+          borderBottom: '1px solid',
+          borderColor: 'border.main',
+      }}
+      >
+        <Typography variant="h5" sx={{ fontWeight: 700, mr: 'auto', mb: { xs: 2, md: 0 } }}>Table Overview (45)</Typography>
+        {OVERVIEW_STATUS.map((item) => (
+          <Box sx={{ display: 'flex', alignItems: 'center', mr: 1 }}>
+            <Box sx={{ width: 12, height: 12, borderRadius: '50%', backgroundColor: item.color, mr: 0.5 }} />
+            <Typography variant="caption">{item.label}</Typography>
+          </Box>
+        ))}
+        <IconButton variant="outlined" color="warning" sx={{ border: '1px solid', ml: 'auto' }}>
+          <SettingsIcon sx={{ color: 'grey.main' }} />
+        </IconButton>
+      </Box>
+      <Grid container spacing={2} sx={{ height: { md: tableHeight }, overflow: 'auto', p: 2, pt: 0, mt: 0 }}>
+        {TABLE_OVERVIEWS.map((item) => (
+          <Grid item xs={6} sm={4} md={3} lg={2}>
+            <TableItem data={item} />
+          </Grid>
+        ))}
+      </Grid>
+    </>
+  )
+}
 
 export default TableOverview
